@@ -166,6 +166,16 @@ cp .env.example .env
 npm run dev
 ```
 
+### Option 3: Separate Terminals
+
+```bash
+# Terminal 1 - Backend
+npm run server
+
+# Terminal 2 - Frontend
+npm run client
+```
+
 ---
 
 ## 🌐 Access Application
