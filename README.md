@@ -2,7 +2,7 @@
 
 A full-stack web application for managing community events, members, and activities.
 
-> 📖 **[מדריך בעברית - לחץ כאן](./HEBREW_README.md)** | **[Quick Start Guide](./START_HERE.md)** | **[How to Run](./HOW_TO_RUN.txt)**
+> 📖 **[Quick Start Guide](./START_HERE.md)** | **[How to Run](./HOW_TO_RUN.txt)**
 
 ## Features
 
