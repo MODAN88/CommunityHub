@@ -1,0 +1,42 @@
+.create-event-page {
+  padding: 40px 0;
+}
+
+.create-event-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.create-event-container h2 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.form-group small {
+  display: block;
+  color: #888;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .create-event-container {
+    padding: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

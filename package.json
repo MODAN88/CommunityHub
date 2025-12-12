@@ -1,0 +1,38 @@
+{
+  "name": "communityhub",
+  "version": "1.0.0",
+  "description": "Community Hub - Full Stack Application for Community Management",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "test": "jest",
+    "start": "node server/index.js",
+    "setup": "npm install && cd client && npm install && cd .. && cp .env.example .env",
+    "install:all": "npm install && cd client && npm install",
+    "clean": "rm -rf node_modules client/node_modules"
+  },
+  "keywords": ["community", "events", "social", "hub"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5",
+    "express-validator": "^7.0.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.7",
+    "redis": "^4.6.11"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}

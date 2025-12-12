@@ -1,0 +1,81 @@
+.event-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.event-category {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.event-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.event-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.event-details {
+  margin-bottom: 15px;
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.event-detail-item .icon {
+  margin-right: 8px;
+}
+
+.event-organizer {
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.event-organizer small {
+  color: #888;
+}
+
+.event-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.event-card-actions .btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
