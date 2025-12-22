@@ -42,12 +42,12 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
-  
+
   // Handle preflight
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
-  
+
   next();
 });
 
@@ -84,6 +84,22 @@ app.get('/api/health', (req, res) => {
 // Error handler
 app.use(errorHandler);
 
+// Serve built client (if present). This makes it possible to run only the server
+// in production or after running `cd client && npm run build` during local testing
+// to avoid development proxy/network issues.
+try {
+  const clientBuild = path.join(__dirname, '..', 'client', 'build');
+  if (fs.existsSync(clientBuild)) {
+    app.use(express.static(clientBuild));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(clientBuild, 'index.html'));
+    });
+    console.log('📦 Serving static client from', clientBuild);
+  }
+} catch (err) {
+  // ignore if check fails
+}
+
 const PORT = process.env.PORT || 5001;
 
 // Start server IMMEDIATELY - don't wait for database/redis
@@ -97,7 +113,7 @@ const server = app.listen(PORT, () => {
 // Connect to databases in background (non-blocking)
 (async () => {
   console.log('📦 Connecting to external services...\n');
-  
+
   // Try to connect to MongoDB
   try {
     await connectDB();
@@ -105,7 +121,7 @@ const server = app.listen(PORT, () => {
   } catch (err) {
     console.log('   ⚠️  No database (registration/login will fail)');
   }
-  
+
   // Try to connect to Redis
   try {
     await connectRedis();
